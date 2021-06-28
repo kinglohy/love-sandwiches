@@ -65,6 +65,7 @@ def update_sales_worksheet(data):
     sales_worksheet.append_row(data)
     print("Sales worksheet updated successfully.\n")
 
+
 def update_surplus_worksheet(data):
     """
     Update surplus worksheet, add new row with the list data provided
@@ -73,6 +74,7 @@ def update_surplus_worksheet(data):
     surplus_worksheet = SHEET.worksheet("surplus")
     surplus_worksheet.append_row(data)
     print("Surplus worksheet updated successfully.\n")
+
 
 def calculate_surplus_data(sales_row):
     """
@@ -85,7 +87,7 @@ def calculate_surplus_data(sales_row):
     print("Calculating surplus data...\n")
     stock = SHEET.worksheet("stock").get_all_values()
     stock_row = stock[-1]
-
+    
     surplus_data = []
     for stock, sales in zip(stock_row, sales_row):
         surplus = int(stock) - sales
